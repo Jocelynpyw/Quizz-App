@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jeu</title>
+    <link rel="stylesheet" href="Css/jeu.css">
+</head>
+<body>
+<!--  Guide section -->
+    <div id="guide">
+        <h2>Quizz Guide</h2>
+        <h3>1. you have only 20 seconds for each question.</h3>
+        <h3>2. Once you select your Answer.It can't Be Undone</h3>
+        <h3>3. You'll Get Points On the Basic Of your Correct Answers.</h3>
+        <h3>4. You can't exit from the quizz while you are playing</h3>
+        <div id="button">
+            <a href="Accueil.html" style="text-decoration: none;"><button id="exit">Exit</button></a>
+            <button id="continue">continue</button>
+        </div>
+    </div>
+
+
+    <!--  Quizz sectionnn -->
+
+    <section id="quiz">
+        <div id="quiz-header">
+            <h5>Amazing Quiz App</h5>
+            <div id="timer">
+                <h6>Time Left :</h6>
+                <h6 id="time">00</h6>
+            </div>
+        </div>
+
+        <!-- Quiz question -->
+        <div id="question">
+            <h2 id="quesionNo"> </h2>
+            <h2 id="questiontext"></h2>
+        </div>
+
+        <!--    Quiz Choices -->
+
+        <div id="optionList">
+            <h4 class="choice_que " id="option1"> </h4>
+            <h4 class="choice_que" id="option2"></h4>
+            <h4 class="choice_que" id="option3"></h4>
+            <h4 class="choice_que" id="option4"></h4>
+        </div>
+
+        <!--    answers Section  -->
+        <div id="answersSection">
+            <h3 id="total_correct">3 of 10 Questions</h3>
+            <h3 id="next_question">next</h3>
+        </div>
+
+        <!-- Result Seection -->
+
+    </section>
+    
+
+    <script src="Js/question.js"></script>
+    <script src="Js/first_page.js"></script>
+    <script src="Js/jeu.js"></script>
+   
+</body>
+</html>
