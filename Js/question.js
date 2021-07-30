@@ -1,4 +1,4 @@
- let  MCQS =[{
+ const  MCQS =[{
      question: "Qui est le President du Cameroun?",
      choice1:"Paul Biya",
      choice2:"Maurice Kamto",

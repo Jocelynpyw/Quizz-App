@@ -67,10 +67,10 @@ let countDown=()=>{
 
 // setInterval(countDown,1000);  
 
-let loadData = ()=>{
-    if(questionNo){
-    questionNo.innerText= index + 1 +". ";
-    questionText.innerText=MCQS[index].question;
+var loadData = ()=>{
+    
+     questionNo.innerText= index + 1 +". ";
+     questionText.innerText=MCQS[index].question;
     option1.innerText=MCQS[index].choice1;
     option2.innerText=MCQS[index].choice2;
     option3.innerText=MCQS[index].choice3;
@@ -79,8 +79,8 @@ let loadData = ()=>{
     // timere start
     timere = 0;
 }
-}
-loadData();
+
+// loadData();
 
 //    ici  je suis en train de rentre onteractive le button Continue
 
@@ -89,5 +89,8 @@ continueBtn.addEventListener('click',()=>{
     quiz.style.display='block'
     interval=setInterval(countDown,1000);
     loadData();
+ 
 });
+
+
 
