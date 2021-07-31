@@ -27,7 +27,7 @@ body{
 
 /*    Quizzzzzzzzzzzzzzzzzz */
 #quiz {
-    height: 430px;
+    height: 450px;
     width: 580px;
     padding: 20px 0px  20px 90px;
     background: blue;
@@ -147,6 +147,7 @@ body{
 }
 /* Quizz question */
 #quiz #question{
+    
      position: absolute;
      top: 80px;
      display: flex;
@@ -213,6 +214,41 @@ h4:hover{
     color: white;
 }
 
+/*    section    progresss     */
+
+#progress{
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    position: relative;
+    height: 4px;
+    transform: translateY(21.3rem);
+}
+
+ #progressBar{
+    border-radius: 20px;
+    /* position: absolute; */
+    height: 100%;
+    width: 0;
+    background: white;
+    
+}
+
+
+/*     setting     section   */
+#setting{
+    position: absolute;
+    color: white;
+    font-size: 34px;
+    bottom: 16%;
+    left: 3%;
+    cursor: pointer;
+    user-select: none;
+}
+
+#setting:hover{
+    opacity: 0.7;
+}
 
 /*           Answers sections          */
 

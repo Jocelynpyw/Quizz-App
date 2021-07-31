@@ -36,6 +36,8 @@ let quit = document.querySelector('#quit')
 //  pour avoir tous les h4 de la sectio de quizz
 let choice_que = document.querySelectorAll('.choice_que');
 
+//    selection of my progress Bar 
+progressBar = document.querySelector('#progressBar')
  
 // declaration des variables que je vais utiliser
 let index =0;
@@ -62,6 +64,8 @@ let countDown=()=>{
         next_question.click();
     }else{
         timere++;
+        progressBar.style.width=`${(timere/20)*100}%`
+        progressBar.style.transition='width ease'
         time.innerText = timere;
         
     }
@@ -108,6 +112,8 @@ choice_que.forEach( (choices,choiceNo)=>{
         // check Answer
         if(choiceNo ===MCQS[index].answer){
             Correct++;
+
+
             // choices.classList.remove("active");
             // choices.classList.add("correctAnswer")
         }else{
