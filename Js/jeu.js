@@ -27,10 +27,12 @@ let total_correct = document.querySelector('#total_correct')
 let next_question = document.querySelector('#next_question')
 
 // let total_correct = document.querySelector('#total_correct')
-
+let points = document.querySelector('#points')
+let startAgain = document.querySelector('#startAgain')
+let quit = document.querySelector('#quit')
 
 // result sectio
-
+// Correct 
 //  pour avoir tous les h4 de la sectio de quizz
 let choice_que = document.querySelectorAll('.choice_que');
 
@@ -40,7 +42,7 @@ let index =0;
 let timere = 0;
 let interval =0;
 
-let Correct = 0
+var Correct = 0
 
 let UserAns = undefined;
 
@@ -89,8 +91,63 @@ continueBtn.addEventListener('click',()=>{
     quiz.style.display='block'
     interval=setInterval(countDown,1000);
     loadData();
+    choice_que.forEach(removeActive=>{
+        removeActive.classList.remove("active")
+
+       
+    })
+
+    total_correct.innerHTML=`${Correct=0} Out of ${MCQS.length} Questions`
+
  
 });
 
+choice_que.forEach( (choices,choiceNo)=>{
+    choices.addEventListener('click',()=>{
+        choices.classList.add("active");
+        // check Answer
+        if(choiceNo ===MCQS[index].answer){
+            Correct++;
+            // choices.classList.remove("active");
+            // choices.classList.add("correctAnswer")
+        }else{
+            Correct+=0;
+            // choices.classList.remove("active");
+            // choices.classList.add("incorrectAnswer")
+        }
+        //stop counter
+        clearInterval(interval)
+        // disable all option when user select an option
+        for(i=0;i<=3;i++){
+            choice_que[i].classList.add("disabled")
+        }
+    })
 
+});
 
+//  what happen when 'next' Button Will Click
+next_question.addEventListener('click',()=>{
+    // if index is less then MCQS.length
+    if(index!==MCQS.length-1){
+        index++;
+
+        choice_que.forEach(removeActive=>{
+            removeActive.classList.remove("active");
+    
+           
+        })
+        //question
+        loadData()
+        //result
+        total_correct.style.display="block"
+        total_correct.innerHTML=`${Correct} Out of ${MCQS.length} Questions`
+        interval=setInterval(countDown,1000)
+
+    }else{
+        index=0;
+    }
+    for(i=0;i<=3;i++){
+        choice_que[i].classList.remove("disabled")
+    }
+
+})

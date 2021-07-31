@@ -71,10 +71,3 @@ let timeCound = document.getElementById('time-cound')
     }
     
 }
-
-
-
-
-
-
-

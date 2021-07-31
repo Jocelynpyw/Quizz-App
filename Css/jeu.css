@@ -153,7 +153,8 @@ body{
      flex-direction: row;
 }
 #quiz #question h2{
-    font-size: 27px;
+    font-size: 20px;
+    line-height: 1.3rem;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -195,20 +196,22 @@ h4:hover{
     right: 30%;
     top: 49%
 }
-#quiz #optionList h4 .active{
-    background: blue;
+/* #quiz #optionList h4  */
+.active{
+    opacity: 0.7;
+    box-shadow: inset 0px 0px 10px blue;
 }
-#quiz #optionList h4 .disabled{
+ .disabled{
     pointer-events: none;
 }
-/* .correctAnswer{
+ .correctAnswer{
     background-color: rgb(33, 201, 33);
     color: white;
 }
-.incorrectAnswer{
+#quiz #optionList h4 .incorrectAnswer{
     background-color: rgb(255, 0, 0);
     color: white;
-} */
+}
 
 
 /*           Answers sections          */
@@ -252,4 +255,76 @@ h4:hover{
     background: none;
     color: rgba(0, 0, 255,0.8);
     font-size: 19px;
+}
+
+
+/*  section resul */
+
+
+#result{
+    height: 400px;
+    width: 450px;
+    padding: 20px;
+    background-color:  #ecf0f3;
+    border-radius: 30px 10px;
+    overflow: hidden;
+    position: relative;
+    transform: translate(80%,30%);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 255,0.8), 0px 0px 10px black;
+    display: none;
+}
+
+#result i{
+    font-size: 180px;
+    color: blue;
+    position: absolute;
+    top: 30px;
+    left: 120px;
+    box-shadow: inset 0px 0px 10px blue;
+    padding: 10px;
+
+}
+#result h6{
+    height: 40px;
+    width: 87%;
+    font-size: 25px;
+    position: absolute;
+    text-align: center;
+    top: 237px;
+    color: blue;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+#result #points{
+   font-size: 23px;
+   top: 275px; 
+   color: blue;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#result button{
+    height: 60px;
+    width: 120px;
+    border: none;
+    outline: none;
+    background: blue;
+    color: #ecf0f3;
+    position: absolute;
+    bottom: 20px;
+    border-radius: 30px 10px;
+    font-weight: bold;
+    font-size: 18px;
+    left: 75px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+box-shadow: inset 0px 0px 10px #ecf0f3;
+    
+
+}
+#result #quit{
+    left: 245px;
+}
+#result button:hover{
+    opacity: .8;
 }
