@@ -262,6 +262,7 @@ h4:hover{
 
 
 #result{
+    user-select: none;
     height: 400px;
     width: 450px;
     padding: 20px;

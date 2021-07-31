@@ -140,14 +140,38 @@ next_question.addEventListener('click',()=>{
         loadData()
         //result
         total_correct.style.display="block"
-        total_correct.innerHTML=`${Correct} Out of ${MCQS.length} Questions`
+        total_correct.innerHTML=`${Correct} Out of ${MCQS.length} Questions`;
+        clearInterval(interval);
         interval=setInterval(countDown,1000)
 
     }else{
         index=0;
+        // when quizz is compleyte
+        clearInterval(interval);
+        quiz.style.display='none';
+        points.innerHTML=`You Got ${Correct} Out of ${MCQS.length} `;
+        result.style.display='block'
+
+
+
     }
     for(i=0;i<=3;i++){
         choice_que[i].classList.remove("disabled")
     }
 
 })
+//    what happen hen 'quit ' button will click
+quit.addEventListener('click',()=>{
+    result.style.display='none';
+    guide.style.display='block';
+
+});
+
+
+// what happen when 'start again' button will click
+
+startAgain.addEventListener('click',()=>{
+    result.style.display='none';
+    guide.style.display='block';
+
+});
