@@ -39,6 +39,30 @@ let choice_que = document.querySelectorAll('.choice_que');
 //    selection of my progress Bar 
 progressBar = document.querySelector('#progressBar')
  
+
+
+//   variables pour  ma nouvelle question
+var newQuestion = document.querySelector('#new-question');
+var newOption1 = document.querySelector('#new-option1') ;
+var newOption2 = document.querySelector('#new-option2') ;
+var newOption3 = document.querySelector('#new-option3') ;
+var newOption4 = document.querySelector('#new-option4') ;
+var newAnswer = document.querySelector('#new-answer')
+var exitNewQuestion = document.querySelector('#exit-new-question')
+var confirmeNewQuestion = document.querySelector('#confirme-new-question')
+var  addQuestion = document.querySelector('#add-question')
+var settingBtn= document.querySelector('#setting')  
+                       //  ici ce sont les variables de qui vont contenir mes differentes questionss 
+var nouvelleQuestion ={
+    question: "",
+    choice1:"",
+    choice2:"",
+    choice3:"",
+    choice4:"",
+    answer:2
+};
+
+
 // declaration des variables que je vais utiliser
 let index =0;
 let timere = 0;
@@ -91,6 +115,7 @@ var loadData = ()=>{
 //    ici  je suis en train de rentre onteractive le button Continue
 
 continueBtn.addEventListener('click',()=>{
+    clearInterval(interval)
     guide.style.display='none';
     quiz.style.display='block'
     interval=setInterval(countDown,1000);
@@ -181,3 +206,55 @@ startAgain.addEventListener('click',()=>{
     guide.style.display='block';
 
 });
+
+
+
+//    what happen when 'exit de new question menu' button will click 
+
+
+settingBtn.addEventListener('click',()=>{
+    quiz.style.display='none'
+    addQuestion.style.display='block'
+    clearInterval(interval)
+})
+exitNewQuestion.addEventListener('click',()=>{
+    guide.style.display='block';
+    addQuestion.style.display='none';
+    clearInterval(interval)
+
+});
+
+
+
+//    what happen when 'confirm menu' button will click 
+
+confirmeNewQuestion.addEventListener('click',(e)=>{
+    if(!newQuestion.value ||
+       ! newOption1.value ||
+        !newOption2.value ||
+       ! newOption3.value ||
+        !newOption4.value ||
+        !newAnswer.value ){
+            alert('Veuiller Rentrez ces Informations bonjour! ')
+            // clearInterval(interval)
+            // setInterval(countDown,1000)
+            e.preventDefault;
+        e.stopPropagation;
+        }else{
+            nouvelleQuestion.question=newQuestion.value;
+            nouvelleQuestion.choice1=newOption1.value;
+            nouvelleQuestion.choice2=newOption2.value;
+            nouvelleQuestion.choice3=newOption3.value;
+            nouvelleQuestion.choice4=newOption4.value;
+            nouvelleQuestion.answer=newAnswer.value;
+            alert('Information bien renseignes Merci!')
+            guide.style.display='block';
+            addQuestion.style.display='none';
+            MCQS.push(nouvelleQuestion);
+            // clearInterval(interval)
+            // setInterval(countDown,1000)
+
+        }
+        
+
+});  

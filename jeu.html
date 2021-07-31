@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Css/jeu.css">
     <title>Jeu</title>
 </head>
@@ -61,8 +64,13 @@
 
 
         <!-- setting section -->
-        <div id="setting"><i class="fas fa-cogs"></i></div>
-
+        <div id="setting">
+            <span >add question</span>
+            <i class="fas fa-cogs">
+           
+        </i></div>
+        <!--     question section    -->
+        
        
 
     </section>
@@ -74,6 +82,35 @@
         <button  id="quit"> Quit Quiz</button>
         <button id="startAgain"> Start Again</button>
     </section>
+
+
+    <!-- section   de  add   -->
+
+
+    <div id="add-question">
+        <div id="container_new_question">
+            <div class="new-option-box" id="new-question-box">
+                <input type="text" id="new-question" placeholder="Entrez Votre Question">
+            </div>
+            <div class="new-option-box">
+                <input type="text" id="new-option1" placeholder="Entrer la Proposition 1">
+            </div>
+            <div class="new-option-box">
+                <input type="text" id="new-option2"placeholder="Entrer la Proposition 2">
+            </div>
+            <div class="new-option-box">
+                <input type="text" id="new-option3"placeholder="Entrer la Proposition 3">
+            </div>
+            <div class="new-option-box">
+                <input value="" type="text" id="new-option4"placeholder="Entrer la Proposition 4">
+            </div>
+            <div class="new-option-box">
+                <input type="number" id="new-answer"placeholder="Entrer le numero Votre  Question">
+            </div>
+        </div>
+        <button id="exit-new-question">Exit</button>
+        <button id="confirme-new-question">Confirmer</button>
+    </div>
     
 
     <script src="Js/question.js"></script>
