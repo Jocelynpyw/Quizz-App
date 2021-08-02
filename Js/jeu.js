@@ -145,7 +145,7 @@ choice_que.forEach( (choices,choiceNo)=>{
 
                 //  ace niveau je vais rajouter des bonnuss  a une variable plutard la je vais d'abord manger 
                 pointBonus++;
-                console.log(pointBonus)
+                console.log(pointBonus);
 
 
             // choices.classList.remove("active");
