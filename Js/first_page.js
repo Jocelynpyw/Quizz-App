@@ -1,7 +1,9 @@
 const text = document.getElementById('napla')
 
 
-const moi =10;
+
+
+
 const strtext=text.textContent
 text.textContent=""
 
@@ -35,17 +37,20 @@ const commencer=document.getElementById('commencer')
 var userName = document.getElementById('user-name')
 var timeCound = document.getElementById('time-cound')
 var timeQuestion=0
-var playerName
+var playerName=""
 const bigin = document.getElementById('bigin')
+//   variable de recuperationd des donnees de l'tilisateurs
+
+var  userName = document.getElementById('user-name')
+var timeCound = document.getElementById('time-cound')
 
 
 commencer.addEventListener('click',soumettre)
 
 
 function soumettre(e){
-    let userName = document.getElementById('user-name')
-let timeCound = document.getElementById('time-cound')
-    if(userName.validity.valueMissing || timeCound.validity.valueMissing ){
+
+    if(!userName.value || !timeCound.value ){
         alert('Renseignez bien toutes vos informations')
         
     }

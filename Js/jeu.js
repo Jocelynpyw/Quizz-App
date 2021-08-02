@@ -30,6 +30,7 @@ let next_question = document.querySelector('#next_question')
 let points = document.querySelector('#points')
 let startAgain = document.querySelector('#startAgain')
 let quit = document.querySelector('#quit')
+let pointBonus =0;
 
 // result sectio
 // Correct 
@@ -132,19 +133,29 @@ continueBtn.addEventListener('click',()=>{
 });
 
 choice_que.forEach( (choices,choiceNo)=>{
+    //   a ce niveauje rajoutte +1  parceques le choiceNo commence a compter partir de zero
+     choiceNo =choiceNo+1;
+
     choices.addEventListener('click',()=>{
         choices.classList.add("active");
+        
         // check Answer
         if(choiceNo ===MCQS[index].answer){
-            Correct++;
+                Correct++;
+
+                //  ace niveau je vais rajouter des bonnuss  a une variable plutard la je vais d'abord manger 
+                pointBonus++;
+                console.log(pointBonus)
 
 
             // choices.classList.remove("active");
             // choices.classList.add("correctAnswer")
         }else{
             Correct+=0;
+            pointBonus=0;
             // choices.classList.remove("active");
             // choices.classList.add("incorrectAnswer")
+           
         }
         //stop counter
         clearInterval(interval)
