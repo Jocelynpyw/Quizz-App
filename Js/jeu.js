@@ -98,8 +98,23 @@ let countDown=()=>{
 
 // setInterval(countDown,1000);  
 
+//    Shuffle cest methode ferra en sorte que les valeurs de notre tableau ne soient pas statiques
+function shuffleArray(inputArray){
+    inputArray.sort(()=> Math.random() - 0.5);
+}
+
+// var demoArray = [1, 3, 5];
+// shuffleArray(demoArray);
+// console.log(demoArray)
+
+
+//   fin de la declaration de la fonction ShuffleArrayu
+
+
+
+
 var loadData = ()=>{
-    
+
      questionNo.innerText= index + 1 +". ";
      questionText.innerText=MCQS[index].question;
     option1.innerText=MCQS[index].choice1;
@@ -116,6 +131,7 @@ var loadData = ()=>{
 //    ici  je suis en train de rentre onteractive le button Continue
 
 continueBtn.addEventListener('click',()=>{
+    shuffleArray(MCQS)
     clearInterval(interval)
     guide.style.display='none';
     quiz.style.display='block'
@@ -146,6 +162,10 @@ choice_que.forEach( (choices,choiceNo)=>{
                 //  ace niveau je vais rajouter des bonnuss  a une variable plutard la je vais d'abord manger 
                 pointBonus++;
                 console.log(pointBonus);
+                if(pointBonus==5){
+                    console.log('Vous venez de rempoter 5points bonnus');
+                    pointBonus=0;
+                }
 
 
             // choices.classList.remove("active");
