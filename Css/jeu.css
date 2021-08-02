@@ -211,7 +211,7 @@ h4:hover{
     background-color: rgb(33, 201, 33);
     color: white;
 }
-#quiz #optionList h4 .incorrectAnswer{
+ .incorrectAnswer{
     background-color: rgb(255, 0, 0);
     color: white;
 }

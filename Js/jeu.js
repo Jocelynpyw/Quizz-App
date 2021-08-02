@@ -157,6 +157,8 @@ choice_que.forEach( (choices,choiceNo)=>{
         
         // check Answer
         if(choiceNo ===MCQS[index].answer){
+            choices.classList.remove("active");
+            choices.classList.add('correctAnswer')
                 Correct++;
 
                 //  ace niveau je vais rajouter des bonnuss  a une variable plutard la je vais d'abord manger 
@@ -171,6 +173,8 @@ choice_que.forEach( (choices,choiceNo)=>{
             // choices.classList.remove("active");
             // choices.classList.add("correctAnswer")
         }else{
+            choices.classList.remove("active");
+            choices.classList.add('incorrectAnswer')
             Correct+=0;
             pointBonus=0;
             // choices.classList.remove("active");
@@ -194,7 +198,11 @@ next_question.addEventListener('click',()=>{
         index++;
 
         choice_que.forEach(removeActive=>{
+            
             removeActive.classList.remove("active");
+            removeActive.classList.remove('correctAnswer')
+            // choices.classList.remove("active");
+            removeActive.classList.remove('incorrectAnswer')
     
            
         })
