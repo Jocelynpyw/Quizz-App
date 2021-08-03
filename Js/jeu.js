@@ -131,14 +131,18 @@ var loadData = ()=>{
 //    ici  je suis en train de rentre onteractive le button Continue
 
 continueBtn.addEventListener('click',()=>{
-    shuffleArray(MCQS)
+   
     clearInterval(interval)
     guide.style.display='none';
     quiz.style.display='block'
     interval=setInterval(countDown,1000);
+    shuffleArray(MCQS)
     loadData();
     choice_que.forEach(removeActive=>{
         removeActive.classList.remove("active")
+        removeActive.classList.remove('incorrectAnswer')
+        removeActive.classList.remove('correctAnswer')
+
 
        
     })

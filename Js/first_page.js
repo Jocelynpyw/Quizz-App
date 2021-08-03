@@ -45,7 +45,7 @@ var  userName = document.getElementById('user-name')
 var timeCound = document.getElementById('time-cound')
 
 
-commencer.addEventListener('click',soumettre)
+bigin.addEventListener('click',soumettre)
 
 
 function soumettre(e){
@@ -53,13 +53,18 @@ function soumettre(e){
     if(!userName.value || !timeCound.value ){
         alert('Renseignez bien toutes vos informations')
         
+        e.preventDefault()
+        
     }
         
     else{
         playerName=userName.value
+        localStorage.setItem("playerName" ,playerName)
         timeQuestion= parseInt( timeCound.value); 
-         if(timeQuestion > 180){
-            alert('le temp d\'une question ne peux pas depasser les 180 s')
+        localStorage.setItem("timeQuestion",timeQuestion)
+         if(timeQuestion > 180 || timeQuestion<0){
+            alert('le temp d\'une question ne peux pas depasser les 180 s et doit etre strictement positif')
+            e.preventDefault()
          }else{
 
            
@@ -68,8 +73,7 @@ function soumettre(e){
             console.log(timeQuestion); 
             // commencer.innerHTML=' <button id="bigin" type="submit"> <a href="jeu.html" style="text-decoration: none;">Commencer</a></button>'
               
-           commencer.style.visibility='hidden'
-           bigin.style.visibility='visible'
+          
          }
        
        
