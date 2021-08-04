@@ -206,6 +206,7 @@ h4:hover{
 }
  .disabled{
     pointer-events: none ;
+    
 }
  .correctAnswer{
     background-color: rgba(33, 201, 33,0.85);

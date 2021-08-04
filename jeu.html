@@ -11,11 +11,12 @@
     <link rel="stylesheet" href="Css/jeu.css">
     <title>Jeu</title>
 </head>
-<body>
+<body onload="chargementInfoJoueur()">
+    
 <!--  Guide section -->
     <div id="guide">
         <h2>Quizz Guide</h2>
-        <h3>1. you have only 20 seconds for each question.</h3>
+        <h3 id="notificationTime">1. you have only 20 seconds for each question.</h3>
         <h3>2. Once you select your Answer.It can't Be Undone</h3>
         <h3>3. You'll Get Points On the Basic Of your Correct Answers.</h3>
         <h3>4. You can't exit from the quizz while you are playing</h3>

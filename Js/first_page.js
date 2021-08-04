@@ -59,9 +59,11 @@ function soumettre(e){
         
     else{
         playerName=userName.value
+        timeQuestion=  timeCound.value ;
+        // let playerNameAndTimeQuestion = playerName.concat(timeQuestion)
+        // localStorage.setItem("playerNameAndTimeQuestion" ,playerNameAndTimeQuestion)
         localStorage.setItem("playerName" ,playerName)
-        timeQuestion= parseInt( timeCound.value); 
-        localStorage.setItem("timeQuestion",timeQuestion)
+        localStorage.setItem("timeQuestion",timeQuestion.toString())
          if(timeQuestion > 180 || timeQuestion<0){
             alert('le temp d\'une question ne peux pas depasser les 180 s et doit etre strictement positif')
             e.preventDefault()

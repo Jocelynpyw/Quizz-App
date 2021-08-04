@@ -1,4 +1,4 @@
-// start Game
+
 
 // let start = document.querySelector('#start')
 
@@ -6,6 +6,7 @@
 let guide = document.querySelector('#guide')
 let exit = document.querySelector('#exit')
 let continueBtn= document.querySelector('#continue')
+let notificationTime = document.querySelector("#notificationTime")
 
 // Quiz section 
 let quiz = document.querySelector('#quiz')
@@ -30,6 +31,12 @@ let next_question = document.querySelector('#next_question')
 let points = document.querySelector('#points')
 let startAgain = document.querySelector('#startAgain')
 let quit = document.querySelector('#quit')
+
+//   ces varibles que je veux declarer ici bas sont celles du joueur que je vais recuperer dans le localStorage
+let playerNamme ;
+let timmeQuestion ;
+let playerNameAndTimeQuestion ;
+
 let pointBonus =0;
 
 // result sectio
@@ -126,11 +133,21 @@ var loadData = ()=>{
     timere = 0;
 }
 
-// loadData();
+ function chargementInfoJoueur (){
+    playerNamme =localStorage.getItem("playerName")
+    timmeQuestion = localStorage.getItem("timeQuestion")
+    // alert('chargement effecue avec success')
+    notificationTime.innerText =`1.Hello ${playerNamme} you have only ${timmeQuestion} seconds for each question. `
+}
 
 //    ici  je suis en train de rentre onteractive le button Continue
 
 continueBtn.addEventListener('click',()=>{
+    // lorsqu'on comence le jeu en chargeant l'autre page on recuperere les donnees du joueur dans le localStorage
+    //  playerNameAndTimeQuestion =localStorage.getItem("playerNameAndTimeQuestion")
+    // playerNamme =localStorage.getItem("playerName")
+    //  timmeQuestion = localStorage.getItem("timeQuestion")
+    
    
     clearInterval(interval)
     guide.style.display='none';
