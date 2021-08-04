@@ -46,6 +46,18 @@ let choice_que = document.querySelectorAll('.choice_que');
 
 //    selection of my progress Bar 
 progressBar = document.querySelector('#progressBar')
+
+// selection of my dashboard's elements
+let dashboard = document.querySelector('#dashboard')
+ let dashboardPlayerName = document.querySelector('#dashboard-header p')
+ let dashboardScore =document.querySelector('#score')
+ let dashboardVrai =document.querySelector('#vrai')
+ let dashboardFaux =document.querySelector('#faux')
+ let dashboardBonus = document.querySelector('#bonus')
+
+ let bonus =0;
+ let faux; 
+ let vrai;
  
 
 
@@ -77,6 +89,9 @@ let timere = 0;
 let interval =0;
 
 var Correct = 0
+var inCorrect=0
+let score=0
+let scoreTotal=0;
 
 let UserAns = undefined;
 
@@ -91,12 +106,12 @@ let UserAns = undefined;
 //  ici je cree le temps du jeu
 
 let countDown=()=>{
-    if(timere === 20){
+    if(timere === timmeQuestion){
         clearInterval(interval);
         next_question.click();
     }else{
         timere++;
-        progressBar.style.width=`${(timere/20)*100}%`
+        progressBar.style.width=`${(timere/timmeQuestion)*100}%`
         progressBar.style.transition='width ease'
         time.innerText = timere;
         
@@ -135,7 +150,7 @@ var loadData = ()=>{
 
  function chargementInfoJoueur (){
     playerNamme =localStorage.getItem("playerName")
-    timmeQuestion = localStorage.getItem("timeQuestion")
+    timmeQuestion =parseInt(localStorage.getItem("timeQuestion"))
     // alert('chargement effecue avec success')
     notificationTime.innerText =`1.Hello ${playerNamme} you have only ${timmeQuestion} seconds for each question. `
 }
@@ -148,7 +163,7 @@ continueBtn.addEventListener('click',()=>{
     // playerNamme =localStorage.getItem("playerName")
     //  timmeQuestion = localStorage.getItem("timeQuestion")
     
-   
+   dashboard.style.display='flex'
     clearInterval(interval)
     guide.style.display='none';
     quiz.style.display='block'
@@ -165,6 +180,9 @@ continueBtn.addEventListener('click',()=>{
     })
 
     total_correct.innerHTML=`${Correct=0} Out of ${MCQS.length} Questions`
+    dashboardPlayerName.innerText=`${playerNamme}`
+    
+
 
  
 });
@@ -172,6 +190,7 @@ continueBtn.addEventListener('click',()=>{
 choice_que.forEach( (choices,choiceNo)=>{
     //   a ce niveauje rajoutte +1  parceques le choiceNo commence a compter partir de zero
      choiceNo =choiceNo+1;
+     
 
     choices.addEventListener('click',()=>{
         choices.classList.add("active");
@@ -181,13 +200,22 @@ choice_que.forEach( (choices,choiceNo)=>{
             choices.classList.remove("active");
             choices.classList.add('correctAnswer')
                 Correct++;
+                score+=5;
+                scoreTotal=score+ bonus
+                dashboardVrai.innerText=`+${Correct}`
+                dashboardScore.innerText=`0${scoreTotal}`
 
                 //  ace niveau je vais rajouter des bonnuss  a une variable plutard la je vais d'abord manger 
                 pointBonus++;
                 console.log(pointBonus);
                 if(pointBonus==5){
+                    bonus =bonus+5;
+                    // score=score+5;
+                    dashboardBonus.innerText=`+${bonus}pts`
+                    console.log(bonus)
                     console.log('Vous venez de rempoter 5points bonnus');
                     pointBonus=0;
+                    
                 }
 
 
@@ -197,7 +225,10 @@ choice_que.forEach( (choices,choiceNo)=>{
             choices.classList.remove("active");
             choices.classList.add('incorrectAnswer')
             Correct+=0;
+            inCorrect++;
+            console.log(inCorrect)
             pointBonus=0;
+            dashboardFaux.innerText=`+${inCorrect}`
             // choices.classList.remove("active");
             // choices.classList.add("incorrectAnswer")
            
@@ -240,7 +271,9 @@ next_question.addEventListener('click',()=>{
         // when quizz is compleyte
         clearInterval(interval);
         quiz.style.display='none';
+        dashboard.style.display='none'
         points.innerHTML=`You Got ${Correct} Out of ${MCQS.length} `;
+        document.querySelector('#result-score').innerText=`Score:${scoreTotal}`
         result.style.display='block'
 
 
@@ -251,12 +284,8 @@ next_question.addEventListener('click',()=>{
     }
 
 })
-//    what happen hen 'quit ' button will click
-quit.addEventListener('click',()=>{
-    result.style.display='none';
-    guide.style.display='block';
 
-});
+
 
 
 // what happen when 'start again' button will click
@@ -275,6 +304,7 @@ startAgain.addEventListener('click',()=>{
 settingBtn.addEventListener('click',()=>{
     quiz.style.display='none'
     addQuestion.style.display='block'
+    dashboard.style.display='none'
     clearInterval(interval)
 })
 exitNewQuestion.addEventListener('click',()=>{

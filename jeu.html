@@ -12,14 +12,47 @@
     <title>Jeu</title>
 </head>
 <body onload="chargementInfoJoueur()">
+
+<!--       dashboard  Section      -->
+
+<section id="dashboard">
+    <div id="dashboard-header"><p>moi</p></div>
+        <div id="score-box">
+            score : <span id="score">00</span>
+        </div>
+
+        <div class="vrai-ou-faux">
+            <div class="vrai-box">
+                true Answer <br> <br>
+                <span id="vrai">00</span>
+            </div>
+
+            <div class="faux-box">
+               false Answer <br> <br>
+                <span id="faux">00</span>
+            </div>
+
+        </div>
+        <h1>DashBoard Game</h1>
+        <div id="bonus-box">
+            Bonus : <span id="bonus">00</span>
+        </div>
+    <div id="dashboard-footer"></div>
+
+</section>
+
+
+
     
 <!--  Guide section -->
+
     <div id="guide">
         <h2>Quizz Guide</h2>
         <h3 id="notificationTime">1. you have only 20 seconds for each question.</h3>
         <h3>2. Once you select your Answer.It can't Be Undone</h3>
-        <h3>3. You'll Get Points On the Basic Of your Correct Answers.</h3>
-        <h3>4. You can't exit from the quizz while you are playing</h3>
+        <h3>3. You'll Get 5 Points On the Basic Of your Correct Answers.</h3>
+        <h3>4. You can have 5 point Bonus if you have five successives Corrects answers</h3>
+        <h3>5. You can't exit from the quizz while you are playing</h3>
         <div id="button">
             <a href="Accueil.html" style="text-decoration: none;"><button id="exit">Exit</button></a>
             <button id="continue">continue</button>
@@ -31,7 +64,7 @@
 
     <section id="quiz">
         <div id="quiz-header">
-            <h5>Jocelyn Quiz App</h5>
+            <h5>Game Quiz App</h5>
             <div id="timer">
                 <h6>Time Left :</h6>
                 <h6 id="time">00</h6>
@@ -80,7 +113,8 @@
         <i class="fas fa-trophy"></i>
         <h6>You Are Complete The Quiz</h6>
         <h6 id="points">You Got 4 Out Of 10</h6>
-        <button  id="quit"> Quit Quiz</button>
+        <h5  id="result-score">Score : </h5>
+        <a href="Accueil.html" style="text-decoration: none;"><button  id="quit"> Quit Quiz</button></a>
         <button id="startAgain"> Start Again</button>
     </section>
 
